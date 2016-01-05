@@ -9,7 +9,9 @@
 import UIKit
 
 class DeviceViewController: UIViewController {
-    @IBOutlet weak var deviceStatus: UILabel!
+    
+    @IBOutlet weak var connectionState: UILabel!
+    @IBOutlet weak var deviceName: UILabel!
     
     var device: MBLMetaWear!
     
@@ -31,17 +33,18 @@ class DeviceViewController: UIViewController {
     
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        deviceName.text = device.name;
         switch (device.state) {
         case .Connected:
-            deviceStatus.text = "Connected";
+            connectionState.text = "Connected";
         case .Connecting:
-            deviceStatus.text = "Connecting";
+            connectionState.text = "Connecting";
         case .Disconnected:
-            deviceStatus.text = "Disconnected";
+            connectionState.text = "Disconnected";
         case .Disconnecting:
-            deviceStatus.text = "Disconnecting";
+            connectionState.text = "Disconnecting";
         case .Discovery:
-            deviceStatus.text = "Discovery";
+            connectionState.text = "Discovery";
         }
     }
 }
