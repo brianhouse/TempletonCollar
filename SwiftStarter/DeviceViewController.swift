@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeviceViewController: UIViewController {
+class DeviceViewController: UITableViewController {
     
     @IBOutlet weak var connectionState: UILabel!
     @IBOutlet weak var deviceName: UILabel!
