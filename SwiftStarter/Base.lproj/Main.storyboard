@@ -196,7 +196,7 @@
                             <tableViewSection headerTitle="Info" id="ZWg-Oe-dXY" userLabel="Info">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="215" id="0ib-Kb-TR4">
-                                        <rect key="frame" x="0.0" y="114" width="320" height="215"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="320" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ib-Kb-TR4" id="s51-hx-4fG">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
@@ -284,7 +284,7 @@
                             <tableViewSection headerTitle="Status" id="tS5-dR-PAP" userLabel="Status">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="93" id="vhc-P4-A1Q">
-                                        <rect key="frame" x="0.0" y="379" width="320" height="93"/>
+                                        <rect key="frame" x="0.0" y="378.5" width="320" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vhc-P4-A1Q" id="jRT-dW-0Rh">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
@@ -339,7 +339,7 @@
                             <tableViewSection headerTitle="Button" id="Se2-wP-s4m" userLabel="Button">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="93" id="M6G-YV-a5A">
-                                        <rect key="frame" x="0.0" y="522" width="320" height="93"/>
+                                        <rect key="frame" x="0.0" y="521.5" width="320" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M6G-YV-a5A" id="1UN-6d-OoQ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
@@ -351,19 +351,42 @@
                             <tableViewSection headerTitle="LED" id="ucz-TM-JQ6" userLabel="LED">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="8WT-4R-Fku">
-                                        <rect key="frame" x="0.0" y="665" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="664.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8WT-4R-Fku" id="sd5-Ia-0dq">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgZ-UF-kg3">
-                                                    <rect key="frame" x="16" y="8" width="102" height="30"/>
+                                                    <rect key="frame" x="16" y="6" width="102" height="30"/>
                                                     <state key="normal" title="Flash Blue LED">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="flashBlueLEDPressed:" destination="ZgW-Xk-BIG" eventType="touchUpInside" id="Wg5-4S-GWg"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="BUZZER" id="p3h-Cv-49k" userLabel="Buzzer">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="Fqp-rW-1aT">
+                                        <rect key="frame" x="0.0" y="758.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fqp-rW-1aT" id="7uI-cs-jt3">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cwa-NM-reH">
+                                                    <rect key="frame" x="16" y="8" width="34" height="30"/>
+                                                    <state key="normal" title="Buzz">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="buzzPressed:" destination="ZgW-Xk-BIG" eventType="touchUpInside" id="0QQ-FE-Q7f"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

@@ -145,6 +145,10 @@ class DeviceViewController: UITableViewController {
         self.device.led?.flashLEDColorAsync(UIColor.blueColor(), withIntensity: 1.0, numberOfFlashes: 5);
     }
 
+    @IBAction func buzzPressed(sender: AnyObject?=nil) {
+        NSLog("buzzPressed");
+        self.device.hapticBuzzer!.startHapticWithDutyCycleAsync(248, pulseWidth: 500, completion: nil);
+    }
 
     func mechanicalSwitchUpdate(obj: MBLNumericData?, error: NSError?) {
         // boo
