@@ -2,8 +2,8 @@
 //  DeviceViewController.swift
 //  SwiftStarter
 //
-//  Created by Stephen Schiffli on 10/20/15.
-//  Copyright © 2015 MbientLab Inc. All rights reserved.
+//  Created by Brian House on 1/5/16.
+//  Copyright © 2016 Brian House. All rights reserved.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ class DeviceViewController: UITableViewController {
     @IBOutlet weak var modelNumberLabel: UILabel!
     @IBOutlet weak var batteryLevelLabel: UILabel!
     @IBOutlet weak var rssiLevelLabel: UILabel!
-    
+    @IBOutlet weak var accelerometerGraph: APLGraphView!    // implicitly imported via Bridging-Header.h
     
     var device: MBLMetaWear!
     
@@ -56,6 +56,7 @@ class DeviceViewController: UITableViewController {
             case .Discovery:
                 self.connectionState.text = "Discovery";
         }
+        // do something if disconnected?
     }
     
     func deviceConnected() {
@@ -152,6 +153,27 @@ class DeviceViewController: UITableViewController {
 
     func mechanicalSwitchUpdate(obj: MBLNumericData?, error: NSError?) {
         // boo
+    }
+    
+    // accelerometer
+    // will have to set sample frequency. 60hz is 16.67ms. rats are quick. 1.56ms is ideal, 6.25 is ok.
+    // -- what is auto sleep? low noise?
+    
+    
+    @IBAction func startAccelerationPressed(sender: AnyObject?=nil) {
+        NSLog("startAccelerationPressed");
+//        self.device.accelerometer?.dataReadyEvent.startNotificationsWithHandlerAsync({
+//        
+//        });
+        
+    }
+
+    @IBAction func stopAccelerationPressed(sender: AnyObject?=nil) {
+        NSLog("stopAccelerationPressed");
+        //        self.device.accelerometer?.dataReadyEvent.startNotificationsWithHandlerAsync({
+        //
+        //        });
+        
     }
     
 }

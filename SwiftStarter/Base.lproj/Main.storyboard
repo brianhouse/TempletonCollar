@@ -189,14 +189,14 @@
             <objects>
                 <tableViewController id="ZgW-Xk-BIG" customClass="DeviceViewController" customModule="SwiftStarter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="gfN-9t-8AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="2000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="Info" id="ZWg-Oe-dXY" userLabel="Info">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="215" id="0ib-Kb-TR4">
-                                        <rect key="frame" x="0.0" y="113.5" width="320" height="215"/>
+                                        <rect key="frame" x="0.0" y="114" width="320" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ib-Kb-TR4" id="s51-hx-4fG">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
@@ -284,7 +284,7 @@
                             <tableViewSection headerTitle="Status" id="tS5-dR-PAP" userLabel="Status">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="93" id="vhc-P4-A1Q">
-                                        <rect key="frame" x="0.0" y="378.5" width="320" height="93"/>
+                                        <rect key="frame" x="0.0" y="379" width="320" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vhc-P4-A1Q" id="jRT-dW-0Rh">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
@@ -339,7 +339,7 @@
                             <tableViewSection headerTitle="Button" id="Se2-wP-s4m" userLabel="Button">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="93" id="M6G-YV-a5A">
-                                        <rect key="frame" x="0.0" y="521.5" width="320" height="93"/>
+                                        <rect key="frame" x="0.0" y="522" width="320" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M6G-YV-a5A" id="1UN-6d-OoQ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
@@ -351,7 +351,7 @@
                             <tableViewSection headerTitle="LED" id="ucz-TM-JQ6" userLabel="LED">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="8WT-4R-Fku">
-                                        <rect key="frame" x="0.0" y="664.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="665" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8WT-4R-Fku" id="sd5-Ia-0dq">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -374,7 +374,7 @@
                             <tableViewSection headerTitle="BUZZER" id="p3h-Cv-49k" userLabel="Buzzer">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="Fqp-rW-1aT">
-                                        <rect key="frame" x="0.0" y="758.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="759" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fqp-rW-1aT" id="7uI-cs-jt3">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -394,6 +394,42 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Accelerometer" id="gIy-1p-tHg" userLabel="Accelerometer">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="190" id="De0-7K-N8U">
+                                        <rect key="frame" x="0.0" y="853" width="320" height="190"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="De0-7K-N8U" id="N9L-tI-O4W">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rg-bV-4yj">
+                                                    <rect key="frame" x="14" y="7" width="108" height="30"/>
+                                                    <state key="normal" title="Start Streaming">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="startAccelerationPressed:" destination="ZgW-Xk-BIG" eventType="touchUpInside" id="lfu-10-Agw"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCR-wv-Xum">
+                                                    <rect key="frame" x="199" y="7" width="107" height="30"/>
+                                                    <state key="normal" title="Stop Streaming">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="stopAccelerationPressed:" destination="ZgW-Xk-BIG" eventType="touchUpInside" id="8tK-EB-VLO"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nh0-0m-YkV" customClass="APLGraphView">
+                                                    <rect key="frame" x="0.0" y="45" width="320" height="112"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="ZgW-Xk-BIG" id="ZSj-LP-dh1"/>
@@ -402,8 +438,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Device" id="vVL-cz-6zJ"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="1500"/>
+                    <size key="freeformSize" width="320" height="2000"/>
                     <connections>
+                        <outlet property="accelerometerGraph" destination="Nh0-0m-YkV" id="bT1-UT-FZU"/>
                         <outlet property="batteryLevelLabel" destination="ZZk-vG-Eqq" id="VZ7-8I-16l"/>
                         <outlet property="connectionState" destination="4wN-B9-52K" id="hnl-3s-rmA"/>
                         <outlet property="deviceID" destination="wHk-0L-fb5" id="MYV-Ow-7zU"/>
@@ -418,7 +455,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="93g-au-Vti" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="798" y="1250"/>
+            <point key="canvasLocation" x="798" y="1486"/>
         </scene>
     </scenes>
     <resources>

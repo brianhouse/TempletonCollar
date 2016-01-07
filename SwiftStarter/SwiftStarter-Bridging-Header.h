@@ -3,3 +3,6 @@
 //
 #import <MetaWear/MetaWear.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+
+#import "APLGraphView.h"
+#import "AccelerometerFilter.h"
