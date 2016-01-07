@@ -20,6 +20,7 @@ class DeviceViewController: UITableViewController {
     @IBOutlet weak var modelNumberLabel: UILabel!
     @IBOutlet weak var batteryLevelLabel: UILabel!
     @IBOutlet weak var rssiLevelLabel: UILabel!
+    @IBOutlet weak var switchLabel: UILabel!
     @IBOutlet weak var accelerometerGraph: APLGraphView!    // implicitly imported via Bridging-Header.h
     
     var device: MBLMetaWear!
@@ -72,23 +73,19 @@ class DeviceViewController: UITableViewController {
         }
         self.readBatteryPressed();
         self.readRSSIPressed();
-        
+        self.device.mechanicalSwitch?.switchValue.readAsync().success({ (obj:AnyObject?) in
+            if let result = obj as? MBLNumericData {
+                if result.value.boolValue {
+                    self.switchLabel.text = "ON";
+                } else {
+                    self.switchLabel.text = "OFF";
+                }
+            }
+        });        
 
         // set up handlers
-        
-        // this doesnt work.
-        //        self.device.mechanicalSwitch?.switchUpdateEvent.startNotificationsWithHandlerAsync(nil).success({ (obj:AnyObject?) in
-        //            // this is useless. how/where to I supply the handler?
-        //        });
+        self.device.mechanicalSwitch?.switchUpdateEvent.startNotificationsWithHandlerAsync(mechanicalSwitchUpdate);
 
-        // this works
-//        self.device.mechanicalSwitch?.switchValue.readAsync().success({ (obj:AnyObject?) in
-//            NSLog("--> read switch value");
-//            if let result = obj as? MBLNumericData {
-//                NSLog("--> result: " + result.value.stringValue);
-//            }
-//
-//        });
         
         // https://github.com/mbientlab/Metawear-iOSAPI/blob/master/MetaWear.framework/Versions/A/Headers/MBLEvent.h
     
@@ -151,8 +148,18 @@ class DeviceViewController: UITableViewController {
         self.device.hapticBuzzer!.startHapticWithDutyCycleAsync(248, pulseWidth: 500, completion: nil);
     }
 
-    func mechanicalSwitchUpdate(obj: MBLNumericData?, error: NSError?) {
-        // boo
+    func mechanicalSwitchUpdate(obj: AnyObject?, error: NSError?) {
+        NSLog("mechnicalSwitchUpdate");
+        if let result = obj as? MBLNumericData {
+            NSLog("Switch: " + result.value.stringValue);
+            if result.value.boolValue {
+                self.switchLabel.text = "ON";
+                self.device.led?.setLEDColorAsync(UIColor.blueColor(), withIntensity: 1.0);
+            } else {
+                self.switchLabel.text = "OFF";
+                self.device.led?.setLEDOnAsync(false, withOptions: 1);
+            }
+        }
     }
     
     // accelerometer
@@ -162,9 +169,9 @@ class DeviceViewController: UITableViewController {
     
     @IBAction func startAccelerationPressed(sender: AnyObject?=nil) {
         NSLog("startAccelerationPressed");
-//        self.device.accelerometer?.dataReadyEvent.startNotificationsWithHandlerAsync({
-//        
-//        });
+        self.device.accelerometer?.dataReadyEvent.startNotificationsWithHandlerAsync({ (obj:AnyObject?, error:NSError?) in
+                // what.
+        });
         
     }
 
