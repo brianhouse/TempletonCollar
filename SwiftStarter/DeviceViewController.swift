@@ -139,7 +139,13 @@ class DeviceViewController: UITableViewController {
             }
         });
     }
-    
+
+    @IBAction func flashBlueLEDPressed(sender: AnyObject?=nil) {
+        NSLog("flashBlueLEDPressed");
+        self.device.led?.flashLEDColorAsync(UIColor.blueColor(), withIntensity: 1.0, numberOfFlashes: 5);
+    }
+
+
     func mechanicalSwitchUpdate(obj: MBLNumericData?, error: NSError?) {
         // boo
     }
