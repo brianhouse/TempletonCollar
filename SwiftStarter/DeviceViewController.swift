@@ -97,7 +97,7 @@ class DeviceViewController: UITableViewController {
         
         // https://github.com/mbientlab/Metawear-iOSAPI/blob/master/MetaWear.framework/Versions/A/Headers/MBLEvent.h
     
-        self.device.mechanicalSwitch!.switchUpdateEvent.programCommandsToRunOnEventAsync({
+//        self.device.mechanicalSwitch!.switchUpdateEvent.programCommandsToRunOnEventAsync({
 //            NSLog("switchUpdateEvent"); // shows up on connect
             // note: seems like the device needs to be reset to re-program commands
             
@@ -112,7 +112,7 @@ class DeviceViewController: UITableViewController {
 //            });
 
             // nothing. but this worked before!!
-            self.device.led?.flashLEDColorAsync(UIColor.blueColor(), withIntensity: 1.0, numberOfFlashes: 1);
+//            self.device.led?.flashLEDColorAsync(UIColor.blueColor(), withIntensity: 1.0, numberOfFlashes: 1);
 
 //             so did this! not now.
 //            self.device.hapticBuzzer!.startHapticWithDutyCycleAsync(248, pulseWidth: 500, completion: nil);
@@ -122,7 +122,7 @@ class DeviceViewController: UITableViewController {
             
             // moving on.
             
-        });
+//        });
 
         
     }
@@ -218,11 +218,40 @@ class DeviceViewController: UITableViewController {
     
     func sendData(sender: AnyObject?=nil) {
         NSLog("sendData");
-        let firstEntry = self.accelerometerDataArray[0];
-        let filename = String(firstEntry.timestamp.timeIntervalSince1970).stringByReplacingOccurrencesOfString(".", withString: "-") + ".csv";
-        let fileURL = NSURL.fileURLWithPath(NSTemporaryDirectory()).URLByAppendingPathComponent(filename);
-        NSLog("--> " + fileURL.path!);
         
+        // create a temp file
+        // let firstEntry = self.accelerometerDataArray[0];
+        // let filename = String(firstEntry.timestamp.timeIntervalSince1970).stringByReplacingOccurrencesOfString(".", withString: "-") + ".csv";
+        // let fileURL = NSURL.fileURLWithPath(NSTemporaryDirectory()).URLByAppendingPathComponent(filename);
+        // NSLog("--> " + fileURL.path!);
+        
+        // assemble data
+        var data: [String] = [];
+        for element in self.accelerometerDataArray {
+            data.append(String(format: "%f,%f,%f,%f,%f", element.timestamp.timeIntervalSince1970, element.x, element.y, element.z, element.RMS));
+        }
+        let postString = data.joinWithSeparator("\n");
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://granu.local:5280")!);
+        request.HTTPMethod = "POST"
+//        let postString = "id=13&name=Jack"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            guard error == nil && data != nil else { // check for fundamental networking error
+                NSLog("error=\(error)");
+                return
+            }
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 { // check for http errors
+                NSLog("statusCode should be 200, but is \(httpStatus.statusCode)")
+                NSLog("response = \(response)");
+            }
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding);
+            NSLog("responseString = \(responseString)");
+        }
+        task.resume();
+        NSLog("--> sent");
     }
+    
+    // TODO: periodic updates for RSSI and battery
     
 }
