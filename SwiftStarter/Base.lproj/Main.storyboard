@@ -404,6 +404,8 @@
                         <outlet property="modelNumberLabel" destination="DdP-9a-odx" id="sdR-ws-Tg9"/>
                         <outlet property="rssiLevelLabel" destination="V4q-uT-3J5" id="g9k-jx-4BR"/>
                         <outlet property="serialNumLabel" destination="OKM-du-6Mp" id="pne-QG-SA1"/>
+                        <outlet property="startAccelerometer" destination="7rg-bV-4yj" id="i3r-KE-9T4"/>
+                        <outlet property="stopAccelerometer" destination="QCR-wv-Xum" id="gjQ-W8-Fd5"/>
                         <outlet property="switchLabel" destination="vQg-bl-Chj" id="WMi-cA-JJt"/>
                     </connections>
                 </tableViewController>

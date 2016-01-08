@@ -22,6 +22,11 @@ class DeviceViewController: UITableViewController {
     @IBOutlet weak var rssiLevelLabel: UILabel!
     @IBOutlet weak var switchLabel: UILabel!
     @IBOutlet weak var accelerometerGraph: APLGraphView!    // implicitly imported via Bridging-Header.h
+    var accelerometerDataArray: [MBLAccelerometerData] = [];
+    
+    @IBOutlet weak var startAccelerometer: UIButton!
+    @IBOutlet weak var stopAccelerometer: UIButton!
+    
     
     var device: MBLMetaWear!
     
@@ -81,8 +86,11 @@ class DeviceViewController: UITableViewController {
                     self.switchLabel.text = "OFF";
                 }
             }
-        });        
+        });
 
+        // update settings
+        self.updateAccelerometerSettings();
+        
         // set up handlers
         self.device.mechanicalSwitch?.switchUpdateEvent.startNotificationsWithHandlerAsync(mechanicalSwitchUpdate);
 
@@ -165,22 +173,47 @@ class DeviceViewController: UITableViewController {
     // accelerometer
     // will have to set sample frequency. 60hz is 16.67ms. rats are quick. 1.56ms is ideal, 6.25 is ok.
     // -- what is auto sleep? low noise?
+    func updateAccelerometerSettings() {
+        NSLog("updateAccelerometerSettings");
+
+        self.accelerometerGraph.fullScale = 2;
+        
+        let MMA8452Q = self.device.accelerometer as! MBLAccelerometerMMA8452Q;
+        MMA8452Q.sampleFrequency = 100;
+        MMA8452Q.fullScaleRange = MBLAccelerometerRange.Range2G;
+        MMA8452Q.highPassFilter = true;
+        MMA8452Q.highPassCutoffFreq = MBLAccelerometerCutoffFreq.Higheset;
+        MMA8452Q.lowNoise = false;
+//        MMA8452Q.autoSleep = false;
+//        MMA8452Q.sleepPowerScheme = MBLAccelerometerPowerScheme.Normal;
+//        MMA8452Q.sleepSampleFrequency = MBLAccelerometerSleepSampleFrequency.Frequency50Hz;
+        
+    }
     
     
     @IBAction func startAccelerationPressed(sender: AnyObject?=nil) {
         NSLog("startAccelerationPressed");
-        self.device.accelerometer?.dataReadyEvent.startNotificationsWithHandlerAsync({ (obj:AnyObject?, error:NSError?) in
-                // what.
-        });
+        self.startAccelerometer.enabled = false;
+        self.stopAccelerometer.enabled = true;
         
+        
+//        if let accel = self.device.accelerometer as? MBLAccelerometerMMA8452Q {
+//            accel.
+//        }
+        self.device.accelerometer?.dataReadyEvent.startNotificationsWithHandlerAsync({ (obj:AnyObject?, error:NSError?) in
+            if let acceleration = obj as? MBLAccelerometerData {
+                NSLog(String(acceleration.x) + "," + String(acceleration.y) + "," + String(acceleration.z) + " " + String(acceleration.RMS));
+                self.accelerometerGraph.addX(Double(acceleration.x), y: Double(acceleration.y), z: Double(acceleration.z))
+                self.accelerometerDataArray.append(acceleration);
+            }
+        });
     }
 
     @IBAction func stopAccelerationPressed(sender: AnyObject?=nil) {
         NSLog("stopAccelerationPressed");
-        //        self.device.accelerometer?.dataReadyEvent.startNotificationsWithHandlerAsync({
-        //
-        //        });
-        
+        self.startAccelerometer.enabled = true;
+        self.stopAccelerometer.enabled = false;
+        self.device.accelerometer?.dataReadyEvent.stopNotificationsAsync();
     }
     
 }
