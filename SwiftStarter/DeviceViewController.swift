@@ -195,16 +195,16 @@ class DeviceViewController: UITableViewController {
         NSLog("startAccelerationPressed");
         self.startAccelerometer.enabled = false;
         self.stopAccelerometer.enabled = true;
-        
-        
-//        if let accel = self.device.accelerometer as? MBLAccelerometerMMA8452Q {
-//            accel.
-//        }
         self.device.accelerometer?.dataReadyEvent.startNotificationsWithHandlerAsync({ (obj:AnyObject?, error:NSError?) in
             if let acceleration = obj as? MBLAccelerometerData {
-                NSLog(String(acceleration.x) + "," + String(acceleration.y) + "," + String(acceleration.z) + " " + String(acceleration.RMS));
-                self.accelerometerGraph.addX(Double(acceleration.x), y: Double(acceleration.y), z: Double(acceleration.z))
+//                NSLog(String(acceleration.x) + "," + String(acceleration.y) + "," + String(acceleration.z) + " " + String(acceleration.RMS));
+//                self.accelerometerGraph.addX(Double(acceleration.x), y: Double(acceleration.y), z: Double(acceleration.z))
+                self.accelerometerGraph.addX(Double(acceleration.RMS), y: 0.0, z: 0.0);
                 self.accelerometerDataArray.append(acceleration);
+                if Double(self.accelerometerDataArray.count) / Double(self.device.accelerometer!.sampleFrequency) > 5 {   // send every 5 seconds
+                    self.sendData();
+                    self.accelerometerDataArray = [];
+                }
             }
         });
     }
@@ -214,6 +214,15 @@ class DeviceViewController: UITableViewController {
         self.startAccelerometer.enabled = true;
         self.stopAccelerometer.enabled = false;
         self.device.accelerometer?.dataReadyEvent.stopNotificationsAsync();
+    }
+    
+    func sendData(sender: AnyObject?=nil) {
+        NSLog("sendData");
+        let firstEntry = self.accelerometerDataArray[0];
+        let filename = String(firstEntry.timestamp.timeIntervalSince1970).stringByReplacingOccurrencesOfString(".", withString: "-") + ".csv";
+        let fileURL = NSURL.fileURLWithPath(NSTemporaryDirectory()).URLByAppendingPathComponent(filename);
+        NSLog("--> " + fileURL.path!);
+        
     }
     
 }
