@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SwiftStarter.xcodeproj">
+      location = "group:/Users/house/Projects/rats/code/Metawear-SwiftStarter-master/TempletonCollar.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
