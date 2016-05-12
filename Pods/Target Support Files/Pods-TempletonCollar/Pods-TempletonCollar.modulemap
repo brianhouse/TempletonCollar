@@ -1,0 +1,6 @@
+framework module Pods_TempletonCollar {
+  umbrella header "Pods-TempletonCollar-umbrella.h"
+
+  export *
+  module * { export * }
+}

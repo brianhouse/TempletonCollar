@@ -15,9 +15,9 @@
 		40E1E84F1BCDD31F00D90A72 /* SwiftStarterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1E84E1BCDD31F00D90A72 /* SwiftStarterTests.swift */; };
 		40E1E85A1BCDD31F00D90A72 /* SwiftStarterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1E8591BCDD31F00D90A72 /* SwiftStarterUITests.swift */; };
 		40E427651BD16466005F94E9 /* ScanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E427641BD16466005F94E9 /* ScanTableViewController.swift */; };
+		ABEE1F226F1DBF898CA1D46E /* Pods_TempletonCollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3091DBC8632586CED4599D /* Pods_TempletonCollar.framework */; };
 		DFF126BF1C3EF1E1000881E0 /* APLGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF126BE1C3EF1E1000881E0 /* APLGraphView.m */; };
 		DFF126C21C3EF1F3000881E0 /* AccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF126C11C3EF1F3000881E0 /* AccelerometerFilter.m */; };
-		E7AFB005226C475DC616C5AD /* libPods-TempletonCollar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79149BE7AB8D9874FABE0B71 /* libPods-TempletonCollar.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +53,7 @@
 		40E1E8591BCDD31F00D90A72 /* SwiftStarterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStarterUITests.swift; sourceTree = "<group>"; };
 		40E1E85B1BCDD31F00D90A72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40E427641BD16466005F94E9 /* ScanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTableViewController.swift; sourceTree = "<group>"; };
-		79149BE7AB8D9874FABE0B71 /* libPods-TempletonCollar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TempletonCollar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B3091DBC8632586CED4599D /* Pods_TempletonCollar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TempletonCollar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F4E815F56D894E9C13B2A4 /* Pods-TempletonCollar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TempletonCollar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TempletonCollar/Pods-TempletonCollar.debug.xcconfig"; sourceTree = "<group>"; };
 		B0C47918CA635C4A5B8ED634 /* Pods-TempletonCollar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TempletonCollar.release.xcconfig"; path = "Pods/Target Support Files/Pods-TempletonCollar/Pods-TempletonCollar.release.xcconfig"; sourceTree = "<group>"; };
 		DFF126BD1C3EF1D3000881E0 /* APLGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APLGraphView.h; path = Accelerometer/APLGraphView.h; sourceTree = SOURCE_ROOT; };
@@ -67,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7AFB005226C475DC616C5AD /* libPods-TempletonCollar.a in Frameworks */,
+				ABEE1F226F1DBF898CA1D46E /* Pods_TempletonCollar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 		2BAD63A59388CA8CA9C897FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				79149BE7AB8D9874FABE0B71 /* libPods-TempletonCollar.a */,
+				6B3091DBC8632586CED4599D /* Pods_TempletonCollar.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
